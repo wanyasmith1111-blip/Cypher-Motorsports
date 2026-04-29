@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cypher Motorsports | Spec Viewer</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="app-header">
+    <div>
+      <p class="eyebrow">Cypher Motorsports</p>
+      <h1>Car Spec Viewer</h1>
+      <p class="subtitle">Browse detailed builds, mods, performance specs, and garage profiles.</p>
+    </div>
+  </header>
+
+  <main class="layout">
+    <aside class="sidebar">
+      <div class="search-card">
+        <label for="searchInput">Search garage</label>
+        <input id="searchInput" type="search" placeholder="Search make, model, mods..." />
+      </div>
+
+      <section>
+        <h2>Vehicles</h2>
+        <div id="vehicleList" class="vehicle-list"></div>
+      </section>
+    </aside>
+
+    <section id="vehicleDetail" class="detail-panel" aria-live="polite"></section>
+  </main>
+
+  <footer class="footer">
+    <p>Prototype built for Cypher Motorsports.</p>
+  </footer>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
