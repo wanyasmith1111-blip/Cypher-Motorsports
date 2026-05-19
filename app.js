@@ -10,6 +10,7 @@ function displayVehicles(vehicleArray) {
     card.className = "car-card";
 
     card.innerHTML = `
+      <img src="${vehicle.image}" alt="${vehicle.make} ${vehicle.model}" class="vehicle-image">
       <h2>${vehicle.year} ${vehicle.make} ${vehicle.model}</h2>
       <p><strong>Category:</strong> ${vehicle.category}</p>
       <p><strong>Engine:</strong> ${vehicle.engine}</p>
