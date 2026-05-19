@@ -52,3 +52,15 @@ searchInput.addEventListener("input", () => {
 });
 
 displayVehicles(vehicles);
+function filterVehicles(category) {
+  if (category === "All") {
+    displayVehicles(vehicles);
+    return;
+  }
+
+  const filtered = vehicles.filter(vehicle => {
+    return vehicle.category === category;
+  });
+
+  displayVehicles(filtered);
+}
