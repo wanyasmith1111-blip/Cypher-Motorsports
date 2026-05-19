@@ -1,106 +1,54 @@
-import { vehicles } from '../data/vehicles.js';
+const vehicleList = document.getElementById("vehicleList");
+const vehicleDetail = document.getElementById("vehicleDetail");
+const searchInput = document.getElementById("searchInput");
 
-const vehicleList = document.querySelector('#vehicleList');
-const vehicleDetail = document.querySelector('#vehicleDetail');
-const searchInput = document.querySelector('#searchInput');
+function displayVehicles(vehicleArray) {
+  vehicleList.innerHTML = "";
 
-let selectedVehicleId = vehicles[0]?.id;
+  vehicleArray.forEach(vehicle => {
+    const card = document.createElement("div");
+    card.className = "car-card";
 
-function vehicleSearchText(vehicle) {
-  return [
-    vehicle.owner,
-    vehicle.year,
-    vehicle.make,
-    vehicle.model,
-    vehicle.trim,
-    vehicle.nickname,
-    vehicle.engine,
-    vehicle.mods.map((mod) => `${mod.category} ${mod.name} ${mod.brand}`).join(' ')
-  ].join(' ').toLowerCase();
-}
+    card.innerHTML = `
+      <h2>${vehicle.year} ${vehicle.make} ${vehicle.model}</h2>
+      <p><strong>Category:</strong> ${vehicle.category}</p>
+      <p><strong>Engine:</strong> ${vehicle.engine}</p>
+      <p><strong>Horsepower:</strong> ${vehicle.horsepower} hp</p>
+      <button onclick="showDetails(${vehicle.id})">View Specs</button>
+    `;
 
-function renderVehicleList(items) {
-  if (!items.length) {
-    vehicleList.innerHTML = '<p class="empty-state">No vehicles found.</p>';
-    return;
-  }
-
-  vehicleList.innerHTML = items.map((vehicle) => `
-    <button class="vehicle-card ${vehicle.id === selectedVehicleId ? 'active' : ''}" data-id="${vehicle.id}">
-      <strong>${vehicle.year} ${vehicle.make} ${vehicle.model}</strong>
-      <span>${vehicle.nickname} • ${vehicle.owner}</span>
-    </button>
-  `).join('');
-
-  document.querySelectorAll('.vehicle-card').forEach((button) => {
-    button.addEventListener('click', () => {
-      selectedVehicleId = button.dataset.id;
-      renderApp();
-    });
+    vehicleList.appendChild(card);
   });
 }
 
-function renderVehicleDetail(vehicle) {
-  if (!vehicle) {
-    vehicleDetail.innerHTML = '<p class="empty-state">Select a vehicle to view specs.</p>';
-    return;
-  }
+function showDetails(id) {
+  const vehicle = vehicles.find(car => car.id === id);
 
   vehicleDetail.innerHTML = `
-    <div class="hero">
-      <div class="hero-content">
-        <div class="badge-row">
-          <span class="badge">${vehicle.owner}</span>
-          <span class="badge">${vehicle.drivetrain}</span>
-          <span class="badge">${vehicle.transmission}</span>
-          <span class="badge">${vehicle.fuel}</span>
-        </div>
-        <h2>${vehicle.nickname}</h2>
-        <p>${vehicle.year} ${vehicle.make} ${vehicle.model} ${vehicle.trim}</p>
-        <p>${vehicle.description}</p>
-      </div>
-    </div>
-
-    <div class="detail-body">
-      <div class="spec-grid">
-        <div class="spec-card"><span>Horsepower</span><strong>${vehicle.horsepower} hp</strong></div>
-        <div class="spec-card"><span>Torque</span><strong>${vehicle.torque} lb-ft</strong></div>
-        <div class="spec-card"><span>Engine</span><strong>${vehicle.engine}</strong></div>
-        <div class="spec-card"><span>Color</span><strong>${vehicle.color}</strong></div>
-      </div>
-
-      <section class="section-card">
-        <h3>Modification List</h3>
-        <div class="mods-grid">
-          ${vehicle.mods.map((mod) => `
-            <div class="mod-item">
-              <strong>${mod.name}</strong><br />
-              <span>${mod.category} • ${mod.brand}</span>
-            </div>
-          `).join('')}
-        </div>
-      </section>
-    </div>
+    <h2>${vehicle.year} ${vehicle.make} ${vehicle.model}</h2>
+    <p><strong>Category:</strong> ${vehicle.category}</p>
+    <p><strong>Engine:</strong> ${vehicle.engine}</p>
+    <p><strong>Horsepower:</strong> ${vehicle.horsepower} hp</p>
+    <p><strong>Drivetrain:</strong> ${vehicle.drivetrain}</p>
+    <p><strong>Transmission:</strong> ${vehicle.transmission}</p>
+    <p>${vehicle.description}</p>
   `;
 }
 
-function getFilteredVehicles() {
-  const query = searchInput.value.trim().toLowerCase();
-  if (!query) return vehicles;
-  return vehicles.filter((vehicle) => vehicleSearchText(vehicle).includes(query));
-}
+searchInput.addEventListener("input", () => {
+  const searchTerm = searchInput.value.toLowerCase();
 
-function renderApp() {
-  const filteredVehicles = getFilteredVehicles();
-  const selectedVehicle = vehicles.find((vehicle) => vehicle.id === selectedVehicleId) || filteredVehicles[0];
+  const filteredVehicles = vehicles.filter(vehicle => {
+    return (
+      vehicle.make.toLowerCase().includes(searchTerm) ||
+      vehicle.model.toLowerCase().includes(searchTerm) ||
+      vehicle.engine.toLowerCase().includes(searchTerm) ||
+      vehicle.drivetrain.toLowerCase().includes(searchTerm) ||
+      vehicle.category.toLowerCase().includes(searchTerm)
+    );
+  });
 
-  if (selectedVehicle && !filteredVehicles.some((vehicle) => vehicle.id === selectedVehicle.id)) {
-    selectedVehicleId = filteredVehicles[0]?.id;
-  }
+  displayVehicles(filteredVehicles);
+});
 
-  renderVehicleList(filteredVehicles);
-  renderVehicleDetail(vehicles.find((vehicle) => vehicle.id === selectedVehicleId));
-}
-
-searchInput.addEventListener('input', renderApp);
-renderApp();
+displayVehicles(vehicles);
