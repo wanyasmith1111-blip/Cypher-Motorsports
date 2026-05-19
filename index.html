@@ -3,38 +3,47 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cypher Motorsports | Spec Viewer</title>
-  <link rel="stylesheet" href="css/styles.css" />
+  <title>Cypher Motorsports</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header class="app-header">
-    <div>
-      <p class="eyebrow">Cypher Motorsports</p>
-      <h1>Car Spec Viewer</h1>
-      <p class="subtitle">Browse detailed builds, mods, performance specs, and garage profiles.</p>
-    </div>
+
+  <header class="hero">
+    <h1>Cypher Motorsports</h1>
+    <p>Decode the machine. Explore specs, builds, and vehicle profiles.</p>
+
+    <input 
+      type="text" 
+      id="searchInput" 
+      placeholder="Search by make, model, engine, drivetrain..."
+    />
   </header>
 
-  <main class="layout">
-    <aside class="sidebar">
-      <div class="search-card">
-        <label for="searchInput">Search garage</label>
-        <input id="searchInput" type="search" placeholder="Search make, model, mods..." />
-      </div>
+  <main>
+    <section class="filters">
+      <button>All</button>
+      <button>JDM</button>
+      <button>Euro</button>
+      <button>Muscle</button>
+      <button>Luxury</button>
+      <button>Track</button>
+    </section>
 
-      <section>
-        <h2>Vehicles</h2>
-        <div id="vehicleList" class="vehicle-list"></div>
-      </section>
-    </aside>
+    <section id="vehicleList" class="vehicle-grid">
+      <!-- Vehicle cards load here -->
+    </section>
 
-    <section id="vehicleDetail" class="detail-panel" aria-live="polite"></section>
+    <section id="vehicleDetail" class="vehicle-detail">
+      <h2>Select a vehicle</h2>
+      <p>Vehicle specs and build details will appear here.</p>
+    </section>
   </main>
 
-  <footer class="footer">
-    <p>Prototype built for Cypher Motorsports.</p>
+  <footer>
+    <p>© 2026 Cypher Motorsports</p>
   </footer>
 
-  <script type="module" src="js/app.js"></script>
+  <script src="vehicles.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
