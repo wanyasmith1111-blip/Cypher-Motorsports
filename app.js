@@ -10,13 +10,19 @@ function displayVehicles(vehicleArray) {
     card.className = "car-card";
 
     card.innerHTML = `
-      <img src="${vehicle.image}" alt="${vehicle.make} ${vehicle.model}" class="vehicle-image">
-      <h2>${vehicle.year} ${vehicle.make} ${vehicle.model}</h2>
-      <p><strong>Category:</strong> ${vehicle.category}</p>
-      <p><strong>Engine:</strong> ${vehicle.engine}</p>
-      <p><strong>Horsepower:</strong> ${vehicle.horsepower} hp</p>
-      <button onclick="showDetails(${vehicle.id})">View Specs</button>
-    `;
+  <div class="vehicle-image-wrap">
+    <img src="${vehicle.image}" alt="${vehicle.make} ${vehicle.model}" class="vehicle-image">
+    <div class="hp-badge">${vehicle.horsepower} HP</div>
+  </div>
+
+  <div class="vehicle-card-content">
+    <p class="vehicle-category">${vehicle.category}</p>
+    <h2>${vehicle.year} ${vehicle.make} ${vehicle.model}</h2>
+    <p><strong>Engine:</strong> ${vehicle.engine}</p>
+    <p><strong>Drivetrain:</strong> ${vehicle.drivetrain}</p>
+    <button onclick="showDetails(${vehicle.id})">View Specs</button>
+  </div>
+`;
 
     vehicleList.appendChild(card);
   });
