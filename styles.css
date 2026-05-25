@@ -350,3 +350,43 @@ button:hover {
   transform: translateY(-6px);
   box-shadow: 0 0 35px rgba(212, 175, 55, 0.22);
 }
+/* === PREMIUM SPEC PANEL === */
+
+.vehicle-detail {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 28px;
+  border-radius: 22px;
+  background: rgba(5, 5, 5, 0.9);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  box-shadow: 0 0 35px rgba(0, 0, 0, 0.65);
+}
+
+.vehicle-detail h2 {
+  color: #d4af37;
+  font-size: 2rem;
+  margin-bottom: 18px;
+}
+
+.vehicle-detail p {
+  color: #e6e6e6;
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+
+.vehicle-detail strong {
+  color: #d4af37;
+}
+
+.vehicle-detail::before {
+  content: "Vehicle Profile";
+  display: inline-block;
+  margin-bottom: 14px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(212, 175, 55, 0.15);
+  color: #d4af37;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
