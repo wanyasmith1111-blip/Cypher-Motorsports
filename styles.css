@@ -298,3 +298,55 @@ button:hover {
 .filters button {
   margin: 0;
 }
+/* === PREMIUM VEHICLE CARD UPGRADE === */
+
+.vehicle-grid {
+  max-width: 1200px;
+  margin: 35px auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 28px;
+}
+
+.car-card {
+  border-radius: 22px;
+  overflow: hidden;
+  background: rgba(5, 5, 5, 0.92);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.65);
+}
+
+.vehicle-image-wrap {
+  height: 260px;
+  position: relative;
+}
+
+.vehicle-image-wrap::after {
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.05),
+    rgba(0, 0, 0, 0.75)
+  );
+}
+
+.vehicle-card-content {
+  padding: 22px;
+}
+
+.vehicle-card-content h2 {
+  font-size: 1.35rem;
+  margin-bottom: 10px;
+}
+
+.hp-badge {
+  top: 16px;
+  right: 16px;
+  font-size: 0.8rem;
+  padding: 8px 14px;
+}
+
+.car-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 35px rgba(212, 175, 55, 0.22);
+}
