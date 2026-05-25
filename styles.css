@@ -248,3 +248,53 @@ button:hover {
   display: block;
   margin: 0 auto 12px auto;
 }
+.hero {
+  padding: 35px 20px 28px;
+}
+
+.main-logo {
+  width: 430px !important;
+  max-width: 90%;
+  margin: 0 auto 18px auto;
+}
+
+.vehicle-grid {
+  max-width: 1100px;
+  margin: 30px auto;
+  padding: 0 20px;
+  display: grid;
+  gap: 28px;
+}
+
+.car-card {
+  max-width: 1000px;
+  margin: 0 auto;
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.vehicle-image-wrap {
+  height: 320px;
+}
+
+.vehicle-card-content {
+  background: linear-gradient(
+    to bottom,
+    rgba(5, 5, 5, 0.85),
+    rgba(0, 0, 0, 0.98)
+  );
+  padding: 24px;
+}
+
+.filters {
+  max-width: 1100px;
+  margin: 22px auto 0;
+  padding: 0 20px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.filters button {
+  margin: 0;
+}
