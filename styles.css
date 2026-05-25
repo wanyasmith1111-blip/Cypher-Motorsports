@@ -508,3 +508,17 @@ button:hover {
   position: relative;
   z-index: 2;
 }
+.filters button {
+  min-width: 92px;
+}
+
+.filters button:hover {
+  transform: translateY(-2px);
+}
+
+.filters button:focus {
+  outline: none;
+  box-shadow:
+    0 0 0 2px rgba(255,255,255,0.15),
+    0 0 18px rgba(212,175,55,0.35);
+}
