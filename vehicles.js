@@ -8,6 +8,10 @@ const vehicles = [
     image: "https://images.unsplash.com/photo-1544636331-e26879cd4d9b?q=80&w=1200&auto=format&fit=crop",
     engine: "3.8L Twin-Turbo V6",
     horsepower: 565,
+    torque: "467 lb-ft",
+    zeroToSixty: "2.9 sec",
+    topSpeed: "196 mph",
+    weight: "3,865 lbs",
     drivetrain: "AWD",
     transmission: "6-speed dual-clutch",
     description: "A legendary AWD performance car known for brutal launches and advanced traction."
