@@ -9,9 +9,11 @@ const vehicles = [
     engine: "3.8L Twin-Turbo V6",
     horsepower: 565,
     torque: "467 lb-ft",
-    zeroToSixty: "2.9 sec",
-    topSpeed: "196 mph",
-    weight: "3,865 lbs",
+
+zeroToSixty: "2.9 sec",
+topSpeed: "196 mph",
+
+weight: "3,865 lbs",
     drivetrain: "AWD",
     transmission: "6-speed dual-clutch",
     description: "A legendary AWD performance car known for brutal launches and advanced traction."
@@ -25,6 +27,12 @@ const vehicles = [
     image: "https://images.unsplash.com/photo-1617531653520-4893f7b2d7db?q=80&w=1200&auto=format&fit=crop",
     engine: "3.0L Turbo Inline-6",
     horsepower: 382,
+    torque: "368 lb-ft",
+
+zeroToSixty: "3.9 sec",
+topSpeed: "155 mph",
+
+weight: "3,400 lbs",
     drivetrain: "RWD",
     transmission: "8-speed automatic / 6-speed manual",
     description: "A modern tuner platform with strong aftermarket support and balanced performance."
@@ -38,6 +46,12 @@ const vehicles = [
     image: "https://images.unsplash.com/photo-1555215695-3004980ad54e?q=80&w=1200&auto=format&fit=crop",
     engine: "3.0L Twin-Turbo Inline-6",
     horsepower: 503,
+    torque: "479 lb-ft",
+
+zeroToSixty: "3.4 sec",
+topSpeed: "155 mph",
+
+weight: "3,990 lbs",
     drivetrain: "RWD / AWD",
     transmission: "8-speed automatic",
     description: "A high-performance sport sedan blending daily usability with track-ready capability."
@@ -51,6 +65,12 @@ const vehicles = [
     image: "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?q=80&w=1200&auto=format&fit=crop",
     engine: "5.0L V8",
     horsepower: 500,
+    torque: "418 lb-ft",
+
+zeroToSixty: "4.1 sec",
+topSpeed: "166 mph",
+
+weight: "3,950 lbs",
     drivetrain: "RWD",
     transmission: "6-speed manual / 10-speed automatic",
     description: "A track-focused Mustang with aggressive styling and naturally aspirated V8 power."
